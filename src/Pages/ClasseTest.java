@@ -69,7 +69,7 @@ public class ClasseTest {
 		cadastroPage.fillNome("João");
 		cadastroPage.fillCPF("111.111.111-11");
 		cadastroPage.fillTelefone("(11)1 1111.1111");
-		cadastroPage.fillEmail("testejoao@teste.com");
+		cadastroPage.fillEmail("teste11232joao@teste.com");
 		cadastroPage.fillSenha("testesenhajoao");
 		cadastroPage.clickRegistrar();
 		
@@ -77,12 +77,30 @@ public class ClasseTest {
 		assertEquals("Editar Usuario", driver.findElement(locator).getText());
 	}
 	
+	//Test Case 5
+		@Test
+		public void testRegisterMissingName() throws Exception {
+			IntMedCadastroPage cadastroPage = new IntMedCadastroPage(driver);
+			cadastroPage.openPage();
+			cadastroPage.fillCPF("111.111.111-11");
+			cadastroPage.fillTelefone("(11)1 1111.1111");
+			cadastroPage.fillEmail("teste23joao@teste.com");
+			cadastroPage.fillSenha("testesenhajoao");
+			cadastroPage.clickRegistrar();
+			
+			By locator = By.xpath("/html/body/div/div[2]/form/div[1]/span[2]");
+			assertEquals("não pode ficar em branco", driver.findElement(locator).getText());
+		}
+		
+	//Test Case 6
 	@Test
 	public void testPerfil() throws Exception{
 		IntMedPerfilEditarPage perfilpage = new IntMedPerfilEditarPage(driver);
 		perfilpage.openPage();
-		perfilpage.fillNome("assafasdjhfsajd");
-		
+		perfilpage.fillNaturalidade("Brasileiro");
+		perfilpage.fillEmail("teste@gmail.com");
+		perfilpage.fillCRM("10");
+		perfilpage.fillCEP("60-000-000");
 		By locator = By.xpath("/html/body/div/div[2]/section/div/div/div[2]/div/h3");
 		assertEquals("Editar Usuario", driver.findElement(locator).getText());
 	}
