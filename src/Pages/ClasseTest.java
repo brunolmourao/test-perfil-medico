@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Forms.IntMedNewFormacaoForm;
 import Forms.IntMedNewTituloForm;
 
 public class ClasseTest {
@@ -77,7 +78,7 @@ public class ClasseTest {
 		By locator = By.xpath("/html/body/div/div[2]/section/div/div/div[2]/div/h3");
 		assertEquals("Editar Usuario", driver.findElement(locator).getText());
 	}
-	//Test 05
+	//Test 06
 	@Test
 	public void testPerfil() throws Exception{
 		IntMedPerfilEditarPage perfilpage = new IntMedPerfilEditarPage(driver);
@@ -86,6 +87,22 @@ public class ClasseTest {
 		
 		By locator = By.xpath("/html/body/div/div[2]/section/div/div/div[2]/div/h3");
 		assertEquals("Editar Usuario", driver.findElement(locator).getText());
+	}
+	//Test Case 07
+	@Test
+	public void testInsertFormation() throws Exception{
+		IntMedLoginPage loginPage = new IntMedLoginPage(driver);
+		loginPage.openPage();
+		loginPage.fillEmail("teste@gmail.com");
+		loginPage.fillPassword("testesenha");
+		loginPage.clickLogin();
+		loginPage.waitLoading();
+		IntMedNewFormacaoForm formacaoPage = new IntMedNewFormacaoForm(driver);
+		formacaoPage.openPage();
+		formacaoPage.fillInstituicao("UFC");
+		formacaoPage.fillMesAno("04","2016");
+		formacaoPage.clickSalvar();
+		assertNotNull(driver.findElement(By.xpath("/html/body/div/div[2]/section/div/div/div[3]/div[2]/table/tbody/tr/td[5]/div/a[2]")));
 	}
 	//Test Case 08
 	@Test
@@ -106,6 +123,7 @@ public class ClasseTest {
 		tituloPage.checkConcluido();
 		tituloPage.clickSalvar();
 		assertNotNull(driver.findElement(By.xpath("/html/body/div/div[2]/section/div/div/div[4]/div[2]/table/tbody/tr/td[9]/div/a[2]")));
+		
 		
 	}
 	

@@ -28,9 +28,9 @@ public class IntMedNewFormacaoForm extends IntMedPage{
 		By locator = By.id("years_month");
 		Select selectedBox = new Select(driver.findElement(locator));
 		selectedBox.selectByValue(mes);
-		By locator1 = By.id("years_years");
-		Select selectedBox1 = new Select(driver.findElement(locator));
-		selectedBox.selectByValue(ano);
+		By locator1 = By.id("years_year");
+		Select selectedBox1 = new Select(driver.findElement(locator1));
+		selectedBox1.selectByValue(ano);
 		
 	}
 
