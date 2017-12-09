@@ -70,7 +70,21 @@ public class IntMedPerfilEditarPage extends IntMedPage{
 	public void fillCEP(String cep) {
 		By locator = By.id("user_address_attributes_cep");
 		WebElement field = driver.findElement(locator);
+		field.clear();
+		field.click();
 		field.sendKeys(cep);
+	}
+	
+	public void fillEstado(String estado) {
+		By locator = By.id("user_address_attributes_state");
+		WebElement field = driver.findElement(locator);
+		field.sendKeys(estado);
+	}
+	
+	public void fillCidade(String cidade) {
+		By locator = By.id("user_address_attributes_city");
+		WebElement field = driver.findElement(locator);
+		field.sendKeys(cidade);
 	}
 	
 	public void fillLogradouro(String logradouro) {

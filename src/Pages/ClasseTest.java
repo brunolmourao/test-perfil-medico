@@ -98,11 +98,12 @@ public class ClasseTest {
 		IntMedPerfilEditarPage perfilpage = new IntMedPerfilEditarPage(driver);
 		perfilpage.openPage();
 		perfilpage.fillNaturalidade("Brasileiro");
-		perfilpage.fillEmail("teste@gmail.com");
 		perfilpage.fillCRM("10");
 		perfilpage.fillCEP("60-000-000");
-		By locator = By.xpath("/html/body/div/div[2]/section/div/div/div[2]/div/h3");
-		assertEquals("Editar Usuario", driver.findElement(locator).getText());
+		perfilpage.fillLogradouro("Rua");
+		perfilpage.fillCidade("Fortaleza");
+		perfilpage.fillEstado("Ceara");
+		assertNull(By.cssSelector("#edit_user_445 > div.box-body > div:nth-child(6) > div:nth-child(2) > div > span"));
 	}
 	
 	@After
