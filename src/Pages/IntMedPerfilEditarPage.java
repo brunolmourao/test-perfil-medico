@@ -1,3 +1,4 @@
+package Pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -92,6 +93,36 @@ public class IntMedPerfilEditarPage extends IntMedPage{
 	
 	public void clickVoltar() {
 		By locator = By.cssSelector("#edit_user_445 > div.box-footer > a");
+		WebElement button = driver.findElement(locator);
+		button.click();
+	}
+	
+	public void clickNewFormacao() {
+		By locator = By.cssSelector("#formations > div.box-header.with-border > div > a");
+		WebElement button = driver.findElement(locator);
+		button.click();
+	}
+	
+	public void clickNewTitulo() {
+		By locator = By.cssSelector("#titulations > div.box-header.with-border > div > a");
+		WebElement button = driver.findElement(locator);
+		button.click();
+	}
+	
+	public void clickNewCursos() {
+		By locator = By.cssSelector("#qualifications > div.box-header.with-border > div > a");
+		WebElement button = driver.findElement(locator);
+		button.click();
+	}
+	
+	public void clickNewExperiencia() {
+		By locator = By.cssSelector("#experiences > div.box-header.with-border > div > a");
+		WebElement button = driver.findElement(locator);
+		button.click();
+	}
+	
+	public void clickNewCargo() {
+		By locator = By.cssSelector("#posts > div.box-header.with-border > div > a");
 		WebElement button = driver.findElement(locator);
 		button.click();
 	}

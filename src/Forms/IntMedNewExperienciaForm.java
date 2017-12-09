@@ -1,0 +1,62 @@
+package Forms;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+import Pages.IntMedPage;
+
+public class IntMedNewExperienciaForm extends IntMedPage{
+
+	public IntMedNewExperienciaForm(WebDriver driver) {
+		this.driver = driver;
+	}
+	
+	public void openPage() throws Exception {
+		driver.get("http://med-profile.apps.intmed.com.br/experiences/new");
+		driver.manage().window().maximize(); 
+	}
+	
+	public void fillCargo(String cargo) {
+		By locator = By.id("experience_post");
+		WebElement field = driver.findElement(locator);
+		field.sendKeys(cargo);
+	}
+	
+	public void fillBreveDescricao(String breveDescricao) {
+		By locator = By.id("experience_description");
+		WebElement field = driver.findElement(locator);
+		field.sendKeys(breveDescricao);
+	}
+	
+	public void fillInstituicao(String instituicao) {
+		By locator = By.id("experience_location");
+		WebElement field = driver.findElement(locator);
+		field.sendKeys(instituicao);
+	}
+	
+	public void fillMesInicial(String mesInicial) {
+		By locator = By.id("experience_inicial_date");
+		WebElement field = driver.findElement(locator);
+		field.sendKeys(mesInicial);
+	}
+	
+	public void fillMesFinal(String mesFinal) {
+		By locator = By.id("experience_final_date");
+		WebElement field = driver.findElement(locator);
+		field.sendKeys(mesFinal);
+	}
+	
+	public void checkAtual(boolean check){
+		By locator = By.id("experience_current");
+		WebElement field = driver.findElement(locator);
+		//TODO
+	}
+	
+	public void clickSalvar(){
+		By locator = By.cssSelector("#new_experience > div.modal-footer > button");
+		WebElement button = driver.findElement(locator);
+		button.click();
+	}
+	
+}
