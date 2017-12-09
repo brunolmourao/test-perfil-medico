@@ -3,6 +3,7 @@ package Forms;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import Pages.IntMedPage;
 
@@ -19,8 +20,8 @@ public class IntMedNewTituloForm extends IntMedPage{
 	
 	public void fillTipo(String tipo) {
 		By locator = By.id("titulation_tipo");
-		WebElement field = driver.findElement(locator);
-		//TODO
+		Select selectedBox = new Select(driver.findElement(locator));
+		selectedBox.selectByValue(tipo);
 	}
 	
 	public void fillDescricao(String descricao) {
@@ -38,19 +39,26 @@ public class IntMedNewTituloForm extends IntMedPage{
 	public void fillMesAnoInicial(String mes, String ano) {
 		By locator = By.id("titulation_start_date");
 		WebElement field = driver.findElement(locator);
-		//TODO
+		field.click();
+		field.clear();
+		field.sendKeys(mes+"/"+ano);
 	}
 	
 	public void fillMesAnoFinal(String mes, String ano) {
 		By locator = By.id("titulation_end_date");
 		WebElement field = driver.findElement(locator);
-		//TODO
+		field.click();
+		field.clear();
+		field.sendKeys(mes+"/"+ano);
 	}
 	
-	public void checkConcluido(boolean check){
+	public void checkConcluido(){
 		By locator = By.id("titulation_finished");
 		WebElement field = driver.findElement(locator);
-		//TODO
+		if ( !driver.findElement(locator).isSelected() )
+		{
+		     driver.findElement(locator).click();
+		}
 	}
 	
 	public void clickSalvar(){

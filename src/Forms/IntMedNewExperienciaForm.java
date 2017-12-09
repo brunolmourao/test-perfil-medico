@@ -35,22 +35,30 @@ public class IntMedNewExperienciaForm extends IntMedPage{
 		field.sendKeys(instituicao);
 	}
 	
-	public void fillMesInicial(String mesInicial) {
-		By locator = By.id("experience_inicial_date");
+	public void fillMesInicial(String mesInicial,String anoInicial) {
+		By locator = By.name("experience[initial_date]");
 		WebElement field = driver.findElement(locator);
-		field.sendKeys(mesInicial);
+		field.click();
+		field.clear();
+		field.sendKeys(mesInicial+"/"+anoInicial);
 	}
 	
-	public void fillMesFinal(String mesFinal) {
+	public void fillMesFinal(String mesFinal,String anoFinal) {
 		By locator = By.id("experience_final_date");
 		WebElement field = driver.findElement(locator);
-		field.sendKeys(mesFinal);
+		field.click();
+		field.clear();
+		field.sendKeys(mesFinal+"/"+anoFinal);
 	}
 	
-	public void checkAtual(boolean check){
+	public void checkAtual(){
 		By locator = By.id("experience_current");
 		WebElement field = driver.findElement(locator);
-		//TODO
+		if ( !driver.findElement(locator).isSelected() )
+		{
+		     driver.findElement(locator).click();
+		}
+		
 	}
 	
 	public void clickSalvar(){
