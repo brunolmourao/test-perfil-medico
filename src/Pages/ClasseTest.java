@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import Forms.IntMedNewCursosForm;
+import Forms.IntMedNewExperienciaForm;
 import Forms.IntMedNewFormacaoForm;
 import Forms.IntMedNewTituloForm;
 
@@ -123,8 +125,44 @@ public class ClasseTest {
 		tituloPage.checkConcluido();
 		tituloPage.clickSalvar();
 		assertNotNull(driver.findElement(By.xpath("/html/body/div/div[2]/section/div/div/div[4]/div[2]/table/tbody/tr/td[9]/div/a[2]")));
-		
-		
+	}
+	//Test Case 09
+	@Test
+	public void testInsertCurso() throws Exception{
+		IntMedLoginPage loginPage = new IntMedLoginPage(driver);
+		loginPage.openPage();
+		loginPage.fillEmail("teste@gmail.com");
+		loginPage.fillPassword("testesenha");
+		loginPage.clickLogin();
+		loginPage.waitLoading();
+		IntMedNewCursosForm cursosPage = new IntMedNewCursosForm(driver);
+		cursosPage.openPage();
+		cursosPage.fillDescricao("Especialização");
+		cursosPage.fillInstituicao("UFC");
+		cursosPage.fillMesAnoInicial("04","2010");
+		cursosPage.fillMesAnoFinal("10","2010");
+		cursosPage.clickSalvar();
+		assertNotNull(driver.findElement(By.xpath("/html/body/div/div[2]/section/div/div/div[5]/div[2]/table/tbody/tr/td[8]/div/a[2]")));
+	}
+	//Test Case 10
+	@Test
+	public void testInsertExperiencia() throws Exception{
+		IntMedLoginPage loginPage = new IntMedLoginPage(driver);
+		loginPage.openPage();
+		loginPage.fillEmail("teste@gmail.com");
+		loginPage.fillPassword("testesenha");
+		loginPage.clickLogin();
+		loginPage.waitLoading();
+		IntMedNewExperienciaForm experienciaPage = new IntMedNewExperienciaForm(driver);
+		experienciaPage.openPage();
+		experienciaPage.fillCargo("Médico");
+		experienciaPage.fillBreveDescricao("Médico");
+		experienciaPage.fillInstituicao("UFC");
+		experienciaPage.fillMesInicial("04","2010");
+		experienciaPage.fillMesFinal("10", "2010");
+		experienciaPage.clickSalvar();
+		assertNotNull("/html/body/div/div[2]/section/div/div/div[6]/div[2]/table/tbody/tr/td[7]/div/a[2]");
+
 	}
 	
 	
