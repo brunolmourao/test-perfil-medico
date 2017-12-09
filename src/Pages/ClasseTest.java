@@ -21,6 +21,7 @@ public class ClasseTest {
 		//drive.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
+	//Test Case 1
 	@Test
 	public void testIntMedValidLogin() throws Exception{
 		IntMedLoginPage loginPage = new IntMedLoginPage(driver);
@@ -52,6 +53,60 @@ public class ClasseTest {
 		tituloPage.clickSalvar();
 		assertNotNull(driver.findElement(By.xpath("/html/body/div/div[2]/section/div/div/div[4]/div[2]/table/tbody/tr/td[9]/div/a[2]")));
 		
+	}
+	
+	//Test Case 2
+	@Test
+	public void testIntMedInvalidPassword() throws Exception{
+		IntMedLoginPage loginPage = new IntMedLoginPage(driver);
+		loginPage.openPage();
+		loginPage.fillEmail("teste@gmail.com");
+		loginPage.fillPassword("testesssssenha");
+		loginPage.clickLogin();
+		loginPage.waitLoading();
+		
+		By locator = By.xpath("/html/body/div/div[2]/div/h4");
+		assertEquals("Atenção!", driver.findElement(locator).getText());
+	}
+	
+	//Test Case 3
+	@Test 
+	public void testIntMedInvalidLogin() throws Exception{
+		IntMedLoginPage loginPage = new IntMedLoginPage(driver);
+		loginPage.openPage();
+		loginPage.fillEmail("testssse@gmail.com");
+		loginPage.fillPassword("testesenha");
+		loginPage.clickLogin();
+		loginPage.waitLoading();
+		
+		By locator = By.xpath("/html/body/div/div[2]/div/h4");
+		assertEquals("Atenção!", driver.findElement(locator).getText());
+	}
+
+	//Test Case 4
+	@Test
+	public void testRegister() throws Exception {
+		IntMedCadastroPage cadastroPage = new IntMedCadastroPage(driver);
+		cadastroPage.openPage();
+		cadastroPage.fillNome("João");
+		cadastroPage.fillCPF("111.111.111-11");
+		cadastroPage.fillTelefone("(11)1 1111.1111");
+		cadastroPage.fillEmail("testejoao@teste.com");
+		cadastroPage.fillSenha("testesenhajoao");
+		cadastroPage.clickRegistrar();
+		
+		By locator = By.xpath("/html/body/div/div[2]/section/div/div/div[2]/div/h3");
+		assertEquals("Editar Usuario", driver.findElement(locator).getText());
+	}
+	
+	@Test
+	public void testPerfil() throws Exception{
+		IntMedPerfilEditarPage perfilpage = new IntMedPerfilEditarPage(driver);
+		perfilpage.openPage();
+		perfilpage.fillNome("assafasdjhfsajd");
+		
+		By locator = By.xpath("/html/body/div/div[2]/section/div/div/div[2]/div/h3");
+		assertEquals("Editar Usuario", driver.findElement(locator).getText());
 	}
 	
 	@After
