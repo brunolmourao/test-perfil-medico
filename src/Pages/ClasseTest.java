@@ -45,7 +45,7 @@ public class ClasseTest {
 		loginPage.waitLoading();
 		
 		By locator = By.xpath("/html/body/div/div[2]/div/h4");
-		assertEquals("Aten√ß√£o!", driver.findElement(locator).getText());
+		assertEquals("AtenÁ„o!", driver.findElement(locator).getText());
 	}
 	
 	//Test Case 3
@@ -59,7 +59,7 @@ public class ClasseTest {
 		loginPage.waitLoading();
 		
 		By locator = By.xpath("/html/body/div/div[2]/div/h4");
-		assertEquals("Aten√ß√£o!", driver.findElement(locator).getText());
+		assertEquals("AtenÁ„o!", driver.findElement(locator).getText());
 	}
 
 	//Test Case 4
@@ -67,7 +67,7 @@ public class ClasseTest {
 	public void testRegister() throws Exception {
 		IntMedCadastroPage cadastroPage = new IntMedCadastroPage(driver);
 		cadastroPage.openPage();
-		cadastroPage.fillNome("Jo√£o");
+		cadastroPage.fillNome("Jo„o");
 		cadastroPage.fillCPF("111.111.111-11");
 		cadastroPage.fillTelefone("(11)1 1111.1111");
 		cadastroPage.fillEmail("testejoao@teste.com");
@@ -77,7 +77,7 @@ public class ClasseTest {
 		By locator = By.xpath("/html/body/div/div[2]/section/div/div/div[2]/div/h3");
 		assertEquals("Editar Usuario", driver.findElement(locator).getText());
 	}
-	
+	//Test 05
 	@Test
 	public void testPerfil() throws Exception{
 		IntMedPerfilEditarPage perfilpage = new IntMedPerfilEditarPage(driver);

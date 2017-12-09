@@ -40,6 +40,7 @@ public class IntMedNewTituloForm extends IntMedPage{
 		By locator = By.id("titulation_start_date");
 		WebElement field = driver.findElement(locator);
 		field.click();
+		field.clear();
 		field.sendKeys(mes+"/"+ano);
 	}
 	
@@ -47,6 +48,7 @@ public class IntMedNewTituloForm extends IntMedPage{
 		By locator = By.id("titulation_end_date");
 		WebElement field = driver.findElement(locator);
 		field.click();
+		field.clear();
 		field.sendKeys(mes+"/"+ano);
 	}
 	
