@@ -3,6 +3,7 @@ package Forms;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 import Pages.IntMedPage;
 
@@ -25,9 +26,12 @@ public class IntMedNewFormacaoForm extends IntMedPage{
 	
 	public void fillMesAno(String mes, String ano) {
 		By locator = By.id("years_month");
-		WebElement field = driver.findElement(locator);
-		field.click();
-		field.sendKeys(mes+"/"+ano);
+		Select selectedBox = new Select(driver.findElement(locator));
+		selectedBox.selectByValue(mes);
+		By locator1 = By.id("years_years");
+		Select selectedBox1 = new Select(driver.findElement(locator));
+		selectedBox.selectByValue(ano);
+		
 	}
 
 	public void clickSalvar(){

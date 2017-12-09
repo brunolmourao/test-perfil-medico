@@ -34,27 +34,6 @@ public class ClasseTest {
 		By locator = By.xpath("/html/body/div/div[2]/section/div/div/div[2]/div/h3");
 		assertEquals("Editar Usuario", driver.findElement(locator).getText());
 	}
-	@Test
-	public void testInsertTitle() throws Exception{
-		IntMedLoginPage loginPage = new IntMedLoginPage(driver);
-		loginPage.openPage();
-		loginPage.fillEmail("teste@gmail.com");
-		loginPage.fillPassword("testesenha");
-		loginPage.clickLogin();
-		loginPage.waitLoading();
-		IntMedNewTituloForm tituloPage = new IntMedNewTituloForm(driver);
-		tituloPage.openPage();
-		tituloPage.fillTipo("titulo");
-		tituloPage.fillInstituicao("UFC");
-		tituloPage.fillDescricao("Título");
-		tituloPage.fillMesAnoInicial("04", "2010");
-		tituloPage.fillMesAnoFinal("09", "2010");
-		tituloPage.checkConcluido();
-		tituloPage.clickSalvar();
-		assertNotNull(driver.findElement(By.xpath("/html/body/div/div[2]/section/div/div/div[4]/div[2]/table/tbody/tr/td[9]/div/a[2]")));
-		
-	}
-	
 	//Test Case 2
 	@Test
 	public void testIntMedInvalidPassword() throws Exception{
@@ -108,6 +87,28 @@ public class ClasseTest {
 		By locator = By.xpath("/html/body/div/div[2]/section/div/div/div[2]/div/h3");
 		assertEquals("Editar Usuario", driver.findElement(locator).getText());
 	}
+	//Test Case 08
+	@Test
+	public void testInsertTitle() throws Exception{
+		IntMedLoginPage loginPage = new IntMedLoginPage(driver);
+		loginPage.openPage();
+		loginPage.fillEmail("teste@gmail.com");
+		loginPage.fillPassword("testesenha");
+		loginPage.clickLogin();
+		loginPage.waitLoading();
+		IntMedNewTituloForm tituloPage = new IntMedNewTituloForm(driver);
+		tituloPage.openPage();
+		tituloPage.fillTipo("titulo");
+		tituloPage.fillInstituicao("UFC");
+		tituloPage.fillDescricao("Título");
+		tituloPage.fillMesAnoInicial("04", "2010");
+		tituloPage.fillMesAnoFinal("09", "2010");
+		tituloPage.checkConcluido();
+		tituloPage.clickSalvar();
+		assertNotNull(driver.findElement(By.xpath("/html/body/div/div[2]/section/div/div/div[4]/div[2]/table/tbody/tr/td[9]/div/a[2]")));
+		
+	}
+	
 	
 	@After
 	public void tearDown(){
