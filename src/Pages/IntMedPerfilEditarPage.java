@@ -9,7 +9,13 @@ public class IntMedPerfilEditarPage extends IntMedPage{
 	}
 	
 	public void openPage() throws Exception {
-		driver.get("http://med-profile.apps.intmed.com.br/perfil/editar");
+		IntMedLoginPage login = new IntMedLoginPage(driver);
+		login.openPage();
+		login.fillEmail("teste@gmail.com");
+		login.fillPassword("testesenha");
+		login.clickLogin();
+		
+		//driver.get("http://med-profile.apps.intmed.com.br/perfil/editar");
 		driver.manage().window().maximize(); 
 	}
 	
