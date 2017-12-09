@@ -161,7 +161,7 @@ public class ClasseTest {
 		experienciaPage.fillMesInicial("04","2010");
 		experienciaPage.fillMesFinal("10", "2010");
 		experienciaPage.clickSalvar();
-		assertNotNull("/html/body/div/div[2]/section/div/div/div[6]/div[2]/table/tbody/tr/td[7]/div/a[2]");
+		assertNotNull(driver.findElement(By.xpath("/html/body/div/div[2]/section/div/div/div[6]/div[2]/table/tbody/tr/td[7]/div/a[2]")));
 
 	}
 	
@@ -175,4 +175,5 @@ public class ClasseTest {
 		driver.quit();
 		System.out.println("Terminando o selenium web driver");
 	}
+
 }	
