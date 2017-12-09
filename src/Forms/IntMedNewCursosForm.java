@@ -32,19 +32,24 @@ public class IntMedNewCursosForm extends IntMedPage{
 	public void fillMesAnoInicial(String mes, String ano) {
 		By locator = By.id("qualification_start_date");
 		WebElement field = driver.findElement(locator);
-		//TODO
+		field.click();
+		field.sendKeys(mes+"/"+ano);
 	}
 	
 	public void fillMesAnoFinal(String mes, String ano) {
 		By locator = By.id("qualification_end_date");
 		WebElement field = driver.findElement(locator);
-		//TODO
+		field.click();
+		field.sendKeys(mes+"/"+ano);
 	}
 	
 	public void checkConcluido(boolean check){
 		By locator = By.id("qualification_finished");
 		WebElement field = driver.findElement(locator);
-		//TODO
+		if ( !driver.findElement(locator).isSelected() )
+		{
+		     driver.findElement(locator).click();
+		}
 	}
 	
 	public void clickSalvar(){

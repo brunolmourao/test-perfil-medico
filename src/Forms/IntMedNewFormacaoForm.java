@@ -26,7 +26,8 @@ public class IntMedNewFormacaoForm extends IntMedPage{
 	public void fillMesAno(String mes, String ano) {
 		By locator = By.id("years_month");
 		WebElement field = driver.findElement(locator);
-		//TODO
+		field.click();
+		field.sendKeys(mes+"/"+ano);
 	}
 
 	public void clickSalvar(){

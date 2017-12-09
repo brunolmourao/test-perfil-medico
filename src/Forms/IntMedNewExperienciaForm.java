@@ -47,10 +47,14 @@ public class IntMedNewExperienciaForm extends IntMedPage{
 		field.sendKeys(mesFinal);
 	}
 	
-	public void checkAtual(boolean check){
+	public void checkAtual(){
 		By locator = By.id("experience_current");
 		WebElement field = driver.findElement(locator);
-		//TODO
+		if ( !driver.findElement(locator).isSelected() )
+		{
+		     driver.findElement(locator).click();
+		}
+		
 	}
 	
 	public void clickSalvar(){
