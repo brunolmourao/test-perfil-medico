@@ -48,7 +48,7 @@ public class ClasseTest {
 		loginPage.waitLoading();
 		
 		By locator = By.xpath("/html/body/div/div[2]/div/h4");
-		assertEquals("Atenï¿½ï¿½o!", driver.findElement(locator).getText());
+		assertEquals("Atenção!", driver.findElement(locator).getText());
 	}
 	
 	//Test Case 3
@@ -62,7 +62,7 @@ public class ClasseTest {
 		loginPage.waitLoading();
 		
 		By locator = By.xpath("/html/body/div/div[2]/div/h4");
-		assertEquals("Atenï¿½ï¿½o!", driver.findElement(locator).getText());
+		assertEquals("Atenção!", driver.findElement(locator).getText());
 	}
 
 	//Test Case 4
@@ -70,7 +70,7 @@ public class ClasseTest {
 	public void testRegister() throws Exception {
 		IntMedCadastroPage cadastroPage = new IntMedCadastroPage(driver);
 		cadastroPage.openPage();
-		cadastroPage.fillNome("Joï¿½o");
+		cadastroPage.fillNome("João");
 		cadastroPage.fillCPF("111.111.111-11");
 		cadastroPage.fillTelefone("(11)1 1111.1111");
 		cadastroPage.fillEmail("teste11232joao@teste.com");
@@ -92,7 +92,7 @@ public class ClasseTest {
 			cadastroPage.clickRegistrar();
 			
 			By locator = By.xpath("/html/body/div/div[2]/form/div[1]/span[2]");
-			assertEquals("nÃ£o pode ficar em branco", driver.findElement(locator).getText());
+			assertEquals("nãoo pode ficar em branco", driver.findElement(locator).getText());
 		}
 		
 	//Test Case 6
@@ -137,7 +137,7 @@ public class ClasseTest {
 		tituloPage.openPage();
 		tituloPage.fillTipo("titulo");
 		tituloPage.fillInstituicao("UFC");
-		tituloPage.fillDescricao("Tï¿½tulo");
+		tituloPage.fillDescricao("Título");
 		tituloPage.fillMesAnoInicial("04", "2010");
 		tituloPage.fillMesAnoFinal("09", "2010");
 		tituloPage.checkConcluido();
@@ -155,7 +155,7 @@ public class ClasseTest {
 		loginPage.waitLoading();
 		IntMedNewCursosForm cursosPage = new IntMedNewCursosForm(driver);
 		cursosPage.openPage();
-		cursosPage.fillDescricao("Especializaï¿½ï¿½o");
+		cursosPage.fillDescricao("Especialização");
 		cursosPage.fillInstituicao("UFC");
 		cursosPage.fillMesAnoInicial("04","2010");
 		cursosPage.fillMesAnoFinal("10","2010");
@@ -173,8 +173,8 @@ public class ClasseTest {
 		loginPage.waitLoading();
 		IntMedNewExperienciaForm experienciaPage = new IntMedNewExperienciaForm(driver);
 		experienciaPage.openPage();
-		experienciaPage.fillCargo("Mï¿½dico");
-		experienciaPage.fillBreveDescricao("Mï¿½dico");
+		experienciaPage.fillCargo("Médico");
+		experienciaPage.fillBreveDescricao("Médico");
 		experienciaPage.fillInstituicao("UFC");
 		experienciaPage.fillMesInicial("04","2010");
 		experienciaPage.fillMesFinal("10", "2010");

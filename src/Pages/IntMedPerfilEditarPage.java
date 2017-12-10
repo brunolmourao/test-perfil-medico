@@ -52,6 +52,8 @@ public class IntMedPerfilEditarPage extends IntMedPage{
 	public void fillEstadoCRM(String estadoCRM) {
 		By locator = By.id("user_crm_location");
 		WebElement field = driver.findElement(locator);
+		field.click();
+		field.clear();
 		field.sendKeys(estadoCRM);
 	}
 	
